@@ -1,1 +1,1 @@
-# PalliativEtiological
+# Identifying Palliative and Etiological Drugs
