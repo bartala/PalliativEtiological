@@ -1,4 +1,4 @@
-# 🌟Identifying Palliative and Etiological Drugs🌟
+# 🧬💊Identifying Palliative and Etiological Drugs💊🧬
 
 # 📚 **Documentation**
 _For a detailed explanation of the project, please refer to our **paper**(should be linked?)
