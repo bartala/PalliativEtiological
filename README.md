@@ -2,13 +2,13 @@
 
 
 ## 📚 **Overview**
-This repository contains code and links to the datasets necessary to run the HetIG-PreDiG model. HetIG-PreDiG is a method for predicting novel disease genes using node embeddings in heterogeneous graphs.
+This repository contains code and links to the datasets necessary to run the HeteroSciGraphNet Classifier model. HeteroSciGraphNet Classifier is a method for predicting novel drugs as etiological or palliative using node embeddings in heterogeneous graphs.
 
 ### Motivation
-Graph analytical approaches permit identifying novel genes involved in complex diseases, but are limited by (i) inferring structural network similarity of connected genes, ignoring potentially relevant unconnected nodes; (ii) using homogeneous graphs, missing gene-disease associations’ complexity; (iii) relying on disease/gene-phenotype associations’ similarities, involving highly incomplete data; (iv) using binary classification, with gene-disease edges as positive training samples, and non-associated gene and disease nodes as negative samples that may include currently unknown disease genes; or (v) reporting predicted novel associations without systematically evaluating their accuracy.
+Understanding the relationships between drugs, genes, and diseases is crucial for developing effective treatments. Our model aims to differentiate between two types of drug mechanisms: etiological (targeting disease causes) and palliative (alleviating symptoms). Despite its significance in drug design and repurposing, this distinction has not been extensively explored.
 
 ### Results
-HetIG-PreDiG analyzes a graph with gene-gene, gene-disease, and gene-tissue associations. It allows predicting novel disease genes using low-dimensional representation of nodes accounting for network structure, and extending beyond network structure using the developed Gene-Disease Prioritization Score (GDPS) reflecting the degree of gene-disease association via gene co-expression data.
+We compiled a comprehensive dataset of 2,018 FDA-approved drugs, including their target genes, protein interactions, and disease associations, sourced from four biomedical databases. This dataset was enriched with manually annotated mechanisms of action (MOA). Utilizing this data, we created a heterogeneous network linking drugs, genes, and diseases, revealing notable patterns like the prevalence of follow-on drugs (targeting the same genes). We evaluated three Machine Learning models - a fine-tuned SciBERT language model, a basic Graph Neural Network (GNN), and a hybrid GNN-SciBERT model - for classifying drug MOAs. The hybrid model demonstrated superior performance, achieving an F1-score of 0.934 in identifying drug MOAs.
 
 
 ## 🔗 **Resources**
@@ -65,3 +65,12 @@ Access the necessary resources for this project:
 - #### Why Not Use a Pre-Finetuned Model?
   - Using a single pre-finetuned model does not align with the 10CV methodology, as it would only reflect the model's performance on one specific training-validation split.
   - To maintain the integrity of the comparative analysis between the GNN model and SciBERT, each model must undergo the same 10-fold cross-validation process.
+ 
+## 📌 **Miscellaneous**
+For any inquiries about the code or the algorithm, please contact alon.bartal@biu.ac.il.
+
+## 📖 **Citing**
+If you find HeteroSciGraphNet useful in your research, please consider citing our work:
+
+@article{??????
+}
