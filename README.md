@@ -3,8 +3,8 @@
 ### 📚 **Documentation**
 _For a detailed explanation of the project, please refer to our **paper**(should be linked?)
 
-### 🚀 **Quick Start**
- - Before executing the colab nodebook, follow these steps for a smooth experience:
+# 🚀 **Quick Start**
+  Before executing the colab nodebook, follow these steps for a smooth experience:
 
 ## **I. Initial Setup and Preparation**
 - ### Selecting the Hardware Accelerator
