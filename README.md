@@ -1,7 +1,14 @@
 # 🧬💊Identifying Palliative and Etiological Drugs💊🧬
 
 ## 📚 **Documentation**
-_For a detailed explanation of the project, please refer to our **paper**(should be linked?)
+_For a detailed explanation of the project, please refer to our  [paper](link-to-paper)
+
+## 🔗 **Resources**
+Access the necessary resources for this project:
+
+- **Datasets**: [Download Datasets](link-to-datasets)
+- **Pre-generated Embeddings**: [Download Embeddings](link-to-embeddings)
+- **Pre-finetuned SciBERT Model**: [Download Model](link-to-model)
 
 ## 🚀 **Quick Start**
   Before executing the colab nodebook, follow these steps for a smooth experience:
