@@ -1,7 +1,7 @@
 # 🧬💊Identifying Palliative and Etiological Drugs💊🧬
 
 ## 📚 **Documentation**
-_For a detailed explanation of the project, please refer to our  [paper](link-to-paper)
+For a detailed explanation of the project, please refer to our  [paper](link-to-paper)
 
 ## 🔗 **Resources**
 Access the necessary resources for this project:
