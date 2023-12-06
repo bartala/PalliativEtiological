@@ -1,7 +1,6 @@
-# Identifying Palliative and Etiological Drugs
-# 1. Setup Instructions
+# # 🌟Identifying Palliative and Etiological Drugs🌟
 
-Before executing the code, follow these steps for a smooth experience:
+Before executing the colab nodebook, follow these steps for a smooth experience:
 
 ## **I. Initial Setup and Preparation**
 - ### Selecting the Hardware Accelerator
