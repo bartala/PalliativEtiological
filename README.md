@@ -1,25 +1,25 @@
 # 🧬💊Identifying Palliative and Etiological Drugs💊🧬
 
-# 📚 **Documentation**
+## 📚 **Documentation**
 _For a detailed explanation of the project, please refer to our **paper**(should be linked?)
 
-# 🚀 **Quick Start**
+## 🚀 **Quick Start**
   Before executing the colab nodebook, follow these steps for a smooth experience:
 
-## **I. Initial Setup and Preparation**
-- ### Selecting the Hardware Accelerator
+### **I. Initial Setup and Preparation**
+- #### Selecting the Hardware Accelerator
   - In the Colab menu, navigate to "Runtime" -> "Change runtime type".
   - Choose "GPU" as your Hardware accelerator to ensure optimal performance.
 
-- ### Python Version Check
+- #### Python Version Check
   - Confirm your Python version by executing `!python --version` in a new cell.
   - This notebook is ideally run on Python 3.10.
 
-- ### Accessing Necessary Files
+- #### Accessing Necessary Files
   - All necessary files, including datasets and embeddings, are available in our GitHub repository.
   - Download these and upload them to your Google Drive in a structured directory (e.g., "/content/drive/MyDrive/project/GNN/").
 
-- ### Mounting Google Drive
+- #### Mounting Google Drive
   - Mount your Google Drive to this notebook to access the files. Instructions are provided in the following cell.
   - As an alternative, you can upload files to Colab's local disk, but note that these will be lost if the Colab session restarts.
 
