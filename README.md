@@ -1,14 +1,14 @@
-# 🧬💊Identifying Palliative and Etiological Drugs💊🧬
+# 🧬💊 Elucidating Drug Mechanisms: Etiological \& Palliative 💊🧬
 
 
 ## 📚 **Overview**
-This repository contains code and links to the datasets necessary to run the HeteroSciGNN Classifier model. HeteroSciGNN Classifier is a method for predicting novel drugs as etiological or palliative using node embeddings in heterogeneous graphs.
+This repository contains code and links to the datasets necessary to run the HeteroSciGNN Classifier model. This model predicts novel drug mechanisms as etiological or palliative using node embeddings in heterogeneous graphs.
 
 ### Motivation
-Understanding the relationships between drugs, genes, and diseases is crucial for developing effective treatments. Our model aims to differentiate between two types of drug mechanisms: etiological (targeting disease causes) and palliative (alleviating symptoms). Despite its significance in drug design and repurposing, this distinction has not been extensively explored.
+Understanding the relationships between drugs, genes, and diseases is crucial for effectively developing and selecting treatments. Our model aims to differentiate between two types of drug mechanisms: etiological (targeting disease causes or contributing factors) and palliative (alleviating symptoms). Despite its significance in drug design and repurposing, this distinction has not been extensively explored.
 
 ### Results
-We compiled a comprehensive dataset of 2,018 FDA-approved drugs, including their target genes, protein interactions, and disease associations, sourced from four biomedical databases. This dataset was enriched with manually annotated mechanisms of action (MOA). Utilizing this data, we created a heterogeneous network linking drugs, genes, and diseases, revealing notable patterns like the prevalence of follow-on drugs (targeting the same genes). We evaluated three Machine Learning models - a fine-tuned SciBERT language model, a basic Graph Neural Network (GNN), and a HeteroSciGNN (hybrid GNN-SciBERT model)- for classifying drug MOAs. The hybrid model demonstrated superior performance, achieving an F1-score of 0.934 in identifying drug MOAs.
+We compiled a comprehensive dataset of 2,018 FDA-approved drugs, including their target genes, protein interactions, and disease associations, sourced from three biomedical databases. This dataset was enriched with manually annotated mechanisms of action (MOA). Utilizing this data, we created a heterogeneous network linking drugs, genes, and diseases, revealing notable patterns such as the prevalence of follow-on drugs (targeting the same genes). We evaluated three Machine Learning models - a fine-tuned SciBERT language model, a basic Graph Neural Network (GNN), and a HeteroSciGNN (hybrid GNN-SciBERT model)- for classifying drug MOAs. The hybrid model demonstrated superior performance, achieving an F1-score of 0.934 in identifying drug MOAs.
 
 
 ## 🔗 **Resources**
@@ -28,7 +28,7 @@ Access the necessary resources for this project:
 
 - #### Python Version Check
   - Confirm your Python version by executing `!python --version` in a new cell.
-  - This notebook is ideally run on Python 3.10.
+  - This notebook accommodates Python 3.10.
 
 - #### Accessing Necessary Files
   - All necessary files, including datasets and embeddings, are available in our GitHub repository.
@@ -50,7 +50,7 @@ Access the necessary resources for this project:
   - You can directly use this model, skipping the finetuning step. Details on how to do this are included in the notebook.
   - Please note: The pre-finetuned SciBERT model is specifically designed for generating embeddings for the HeteroSciGNN model. It is not intended for comparison with the HeteroSciGNN model.
 
-### **III. Comparing HeteroSciGNN Nodel and SciBERT**
+### **III. Comparing HeteroSciGNN Model and SciBERT**
 - #### Fine-Tuning for Comparison
   - To effectively compare the performance between the HeteroSciGNN model and SciBERT, it's essential to fine-tune both using the 10-fold cross-validation process.
   - Detailed instructions for fine-tuning SciBERT using 10-fold cross-validation are provided in the respective sections of this notebook.
