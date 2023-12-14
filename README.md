@@ -21,22 +21,45 @@ Access the necessary resources for this project:
 ## 🚀 **Quick Start**
   Before executing the colab nodebook, follow these steps for a smooth experience:
 
-### **I. Initial Setup and Preparation**
-- #### Selecting the Hardware Accelerator
-  - In the Colab menu, navigate to "Runtime" -> "Change runtime type".
-  - Choose "GPU" as your Hardware accelerator to ensure optimal performance.
+## I. Initial Setup and Preparation
+- ### Selecting the Hardware Accelerator
+  - Navigate to "Runtime" -> "Change runtime type" in the Colab menu.
+  - Choose "GPU" as your hardware accelerator for optimal performance.
 
-- #### Python Version Check
-  - Confirm your Python version by executing `!python --version` in a new cell.
-  - This notebook accommodates Python 3.10.
+- ### Python Version Check
+  - Execute `!python --version` in a new cell to confirm your Python version.
+  - This notebook is optimized for Python 3.10.
 
-- #### Accessing Necessary Files
-  - All necessary files, including datasets and embeddings, are available in our GitHub repository.
-  - Download these and upload them to your Google Drive in a structured directory (e.g., "/content/drive/MyDrive/project/GNN/").
+- ### Accessing Necessary Files
+  - All required files, including datasets and embeddings, are in our GitHub repository.
+  - Download these files and upload them to your Google Drive in a structured directory, like "/content/drive/MyDrive/project/PalliativEtiological/".
 
-- #### Mounting Google Drive
-  - Mount your Google Drive to this notebook to access the files. Instructions are provided in the following cell.
-  - As an alternative, you can upload files to Colab's local disk, but note that these will be lost if the Colab session restarts.
+- ### Mounting Google Drive
+  - Mount your Google Drive to access the files, following the instructions in the next cell.
+  - Alternatively, upload files to Colab's local disk, but they will be lost if the session restarts.
+
+- ### Run Code
+  To run specific segments or the entire code efficiently, follow these guidelines:
+  
+  - **Initial Setup:** 
+    - Begin with the setup instructions to establish the necessary environment. 
+    - Make sure the paths for all required files are correctly set.
+
+  - **Running Specific Segments (Sections 2-9):**
+    - **File Dependencies:** 
+      - Check each segment's instructions for its file requirements.
+      - Ensure these files are loaded and their paths are correctly set.
+    - **Independence of Segments:** 
+      - Segments can run independently, **except for segment 7**, which needs the 10-fold CV SciBert. Confirm that all necessary files for each segment are available.
+
+
+  - **Running the Entire Notebook:**
+    - Go to "Runtime" in the Colab menu and select "Run all".
+    - **Key File Check:** Ensure `comprehensive_dataset.csv.gz` is available and loaded, as it's critical for the entire notebook.
+
+  - **Source of Files:** 
+    - Download necessary files from our GitHub repository.
+    - Store them correctly in your Google Drive or Colab's local disk.
 
 ### **II. Using Pre-generated Resources**
 - #### Pre-generated Embeddings
