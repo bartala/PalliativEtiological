@@ -39,18 +39,18 @@ Access the necessary resources for this project:
   - Alternatively, upload files to Colab's local disk, but they will be lost if the session restarts.
 
 - ### Run Code
-  To run specific segments or the entire code efficiently, follow these guidelines:
+  To run specific sections or the entire code efficiently, follow these guidelines:
   
   - **Initial Setup:** 
     - Begin with the setup instructions to establish the necessary environment. 
     - Make sure the paths for all required files are correctly set.
 
-  - **Running Specific Segments (Sections 2-9):**
+  - **Running Specific Sections (Sections 2-9):**
     - **File Dependencies:** 
-      - Check each segment's instructions for its file requirements.
+      - Check each section's instructions for its file requirements.
       - Ensure these files are loaded and their paths are correctly set.
-    - **Independence of Segments:** 
-      - Segments can run independently, **except for segment 7**, which needs the 10-fold CV SciBert. Confirm that all necessary files for each segment are available.
+    - **Independence of Sections:** 
+      - Sections can run independently, **except for section 7**, which needs the 10-fold CV SciBert. Confirm that all necessary files for each section are available.
 
 
   - **Running the Entire Notebook:**
