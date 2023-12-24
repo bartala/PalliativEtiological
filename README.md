@@ -2,7 +2,7 @@
 
 
 ## 📚 **Overview**
-This repository contains code and links to the datasets necessary to run the HeteroSciGNN Classifier model. This model predicts novel drug mechanisms as etiological or palliative using node embeddings in heterogeneous graphs.
+This repository contains code and links to the datasets necessary to run the HeteroSciGNN Classifier model. This model predicts novel drug mechanisms as etiological or palliative using node embeddings in heterogeneous graph.
 
 ### Motivation
 Understanding the relationships between drugs, genes, and diseases is crucial for effectively developing and selecting treatments. Our model aims to differentiate between two types of drug mechanisms: etiological (targeting disease causes or contributing factors) and palliative (alleviating symptoms). Despite its significance in drug design and repurposing, this distinction has not been extensively explored.
@@ -34,9 +34,9 @@ Access the necessary resources for this project:
   - All required files, including datasets and embeddings, are in our GitHub repository.
   - Download these files and upload them to your Google Drive in a structured directory, like "/content/drive/MyDrive/project/PalliativEtiological/".
 
-- ### Mounting Google Drive
-  - Mount your Google Drive to access the files, following the instructions in the next cell.
-  - Alternatively, upload files to Colab's local disk, but they will be lost if the session restarts.
+- ### Mounting Google Drive / Colab's local disk
+  - Mount your Google Drive to access the files.
+  - Alternatively, upload files to Colab's local disk.
 
 - ### Run Code
   To run specific sections or the entire code efficiently, follow these guidelines:
@@ -76,19 +76,8 @@ Access the necessary resources for this project:
 ### **III. Comparing HeteroSciGNN Model and SciBERT**
 - #### Fine-Tuning for Comparison
   - To effectively compare the performance between the HeteroSciGNN model and SciBERT, it's essential to fine-tune both using the 10-fold cross-validation process.
-  - Detailed instructions for fine-tuning SciBERT using 10-fold cross-validation are provided in the respective sections of this notebook.
+  - Detailed instructions for fine-tuning SciBERT using 10-fold cross-validation are provided in the respective sections of 'PalliativeEtiolgical.pynb' notebook.
 
-### **IV. Important Note on Model Fine-Tuning**
-- #### Requirement for Self Fine-Tuning
-  - Due to our use of 10-fold cross-validation (10CV) for model comparison, it's necessary for you to fine-tune the SciBERT model yourself, rather than using a single pre-finetuned model we provided in GitHub.
-  - The 10CV process involves training and evaluating the model on different subsets of the data across 10 iterations, which cannot be replicated with a pre-finetuned model designed for a single dataset split.
-  - This step ensures that each model is optimized and evaluated under similar conditions, allowing for a fair and meaningful comparison.
-  - We provide detailed steps in the notebook for fine-tuning the SciBERT model using 10-fold cross-validation to facilitate this process.
-
-- #### Why Not Use a Pre-Finetuned Model?
-  - Using a single pre-finetuned model does not align with the 10CV methodology, as it would only reflect the model's performance on one specific training-validation split.
-  - To maintain the integrity of the comparative analysis between the HeteroSciGNN Classifier and SciBERT, each model must undergo the same 10-fold cross-validation process.
- 
 ## 📌 **Miscellaneous**
 For any inquiries about the code or the algorithm, please contact alon.bartal@biu.ac.il.
 
