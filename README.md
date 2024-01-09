@@ -71,7 +71,9 @@ Access the necessary resources for this project:
   - Finetuning the SciBERT model is also a resource-intensive task, requiring significant time.
   - As a convenient alternative, we offer a pre-finetuned SciBERT model available in our GitHub repository.
   - You can directly use this model, skipping the finetuning step. Details on how to do this are included in the notebook.
-  - Please note: The pre-finetuned SciBERT model is specifically designed for generating embeddings for the HeteroSciGNN model. It is not intended for comparison with the HeteroSciGNN model.
+  - Please note: To initialize the tokenizer for the SciBERT model, the use of an access token is optional.
+    While an access token can be used (obtainable from your Hugging Face account), it's not mandatory for accessing public models like SciBERT.
+    If you have an access token, assign it to the variable `access_token`.
 
 ### **III. Comparing HeteroSciGNN Model and SciBERT**
 - #### Fine-Tuning for Comparison
