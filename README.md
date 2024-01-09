@@ -73,7 +73,7 @@ Access the necessary resources for this project:
   - You can directly use this model, skipping the finetuning step. Details on how to do this are included in the notebook.
   - Please note: To initialize the tokenizer for the SciBERT model, the use of an access token is optional.
     While an access token can be used (obtainable from your Hugging Face account), it's not mandatory for accessing public models like SciBERT.
-    If you have an access token, assign it to the variable `access_token`.
+    If you have an access token, assign it to the variable `access_token`. Otherwise, set the variable to `None`.
 
 ### **III. Comparing HeteroSciGNN Model and SciBERT**
 - #### Fine-Tuning for Comparison
