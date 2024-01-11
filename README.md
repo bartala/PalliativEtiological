@@ -67,15 +67,12 @@ Access the necessary resources for this project:
   - To expedite the process, you may choose to use pre-generated embeddings from our GitHub repository.
   - Instructions for using these embeddings are provided in the relevant sections of this notebook.
 
-- #### Pre-finetuned SciBERT Model
-  - Finetuning the SciBERT model is also a resource-intensive task, requiring significant time.
-  - As a convenient alternative, we offer a pre-finetuned SciBERT model available in our GitHub repository.
-  - You can directly use this model, skipping the finetuning step. Details on how to do this are included in the notebook.
+### **III. Fine-Tuned SciBERT Model**
   - Please note: To initialize the tokenizer for the SciBERT model, the use of an access token is optional.
     While an access token can be used (obtainable from your Hugging Face account), it's not mandatory for accessing public models like SciBERT.
     If you have an access token, assign it to the variable `access_token`. Otherwise, set the variable to `None`.
 
-### **III. Comparing HeteroSciGNN Model and SciBERT**
+### **IV. Comparing HeteroSciGNN Model and SciBERT**
 - #### Fine-Tuning for Comparison
   - To effectively compare the performance between the HeteroSciGNN model and SciBERT, it's essential to fine-tune both using the 10-fold cross-validation process.
   - Detailed instructions for fine-tuning SciBERT using 10-fold cross-validation are provided in the respective sections of 'PalliativeEtiolgical.pynb' notebook.
