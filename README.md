@@ -74,7 +74,7 @@ Access the necessary resources for this project:
 
 ### **IV. Comparing HeteroSciGNN Model and SciBERT**
 - #### Fine-Tuning for Comparison
-  - To effectively compare the performance between the HeteroSciGNN model and SciBERT, it's essential to fine-tune both using the 10-fold cross-validation process.
+  - To effectively compare the performance between the HeteroSciGNN model and SciBERT, it's essential to fine-tune both using the same 10-fold cross-validation process.
   - Detailed instructions for fine-tuning SciBERT using 10-fold cross-validation are provided in the respective sections of 'PalliativeEtiolgical.pynb' notebook.
 
 ## 📌 **Miscellaneous**
