@@ -16,8 +16,8 @@ Access the necessary resources for this project:
 
 - **Datasets**: [Download Datasets](link-to-datasets)
 - **Pre-generated Embeddings**: [Download Embeddings](https://github.com/bartala/PalliativEtiological/tree/main/Embeddings)
-- **Pre-finetuned SciBERT Model**: [Download Model](https://drive.google.com/drive/folders/1FW1carmxH62eD_rFqRWs5NDYG_logcTC?usp=sharing)
-- **HeteroSciGNN Classifier model**: [Download Model](https://github.com/bartala/PalliativEtiological/tree/main/HeteroSciGNN%20Model)
+- **Pre-finetuned SciBERT Model**: [Download SciBERT Model](https://drive.google.com/drive/folders/1FW1carmxH62eD_rFqRWs5NDYG_logcTC?usp=sharing)
+- **HeteroSciGNN Classifier Model**: [Download HeteroSciGNN Model](https://github.com/bartala/PalliativEtiological/tree/main/HeteroSciGNN%20Model)
 
 ## 🚀 **Quick Start**
   Before executing the colab nodebook, follow these steps for a smooth experience:
