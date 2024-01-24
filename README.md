@@ -19,7 +19,7 @@ Access the necessary resources for this project:
 - **BioGrid DataSet** (In the project we used BIOGRID-ORGANISM-Homo_sapiens-4.4.217.tab3.txt): [Download BioGrid Dataset](https://downloads.thebiogrid.org/File/BioGRID/Release-Archive/BIOGRID-4.4.217/BIOGRID-ORGANISM-4.4.217.tab3.zip)
 
 - **Pre-generated Embeddings**: [Download Embeddings](https://github.com/bartala/PalliativEtiological/tree/main/Embeddings)
-- **Pre-finetuned SciBERT Model**: [Download SciBERT Model](https://drive.google.com/drive/folders/1FW1carmxH62eD_rFqRWs5NDYG_logcTC?usp=sharing)
+- **Finetuned SciBERT Model**: [Download SciBERT Model](https://drive.google.com/drive/folders/1FW1carmxH62eD_rFqRWs5NDYG_logcTC?usp=sharing)
 - **HeteroSciGNN Classifier Model**: [Download HeteroSciGNN Model](https://github.com/bartala/PalliativEtiological/tree/main/HeteroSciGNN%20Model)
 
 ## 🚀 **Quick Start**
