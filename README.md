@@ -14,7 +14,10 @@ We compiled a comprehensive dataset of 2,018 FDA-approved drugs, including their
 ## 🔗 **Resources**
 Access the necessary resources for this project:
 
-- **Datasets**: [Download Datasets](link-to-datasets)
+- **DrugBank DataSet** (In the project we used Approved Drugs Version 5.1.10): [Download Datasets](https://go.drugbank.com/releases/latest#protein-identifiers)
+- **OMIM DataSet** (In the project we used morbidmap.txt downloaded May 1, 2023): [Download Datasets](https://www.omim.org/downloads)
+- **BioGrid DataSet** (In the project we used BIOGRID-ORGANISM-Homo_sapiens-4.4.217.tab3.txt): [Download Datasets](https://downloads.thebiogrid.org/File/BioGRID/Release-Archive/BIOGRID-4.4.217/BIOGRID-ORGANISM-4.4.217.tab3.zip)
+
 - **Pre-generated Embeddings**: [Download Embeddings](https://github.com/bartala/PalliativEtiological/tree/main/Embeddings)
 - **Pre-finetuned SciBERT Model**: [Download SciBERT Model](https://drive.google.com/drive/folders/1FW1carmxH62eD_rFqRWs5NDYG_logcTC?usp=sharing)
 - **HeteroSciGNN Classifier Model**: [Download HeteroSciGNN Model](https://github.com/bartala/PalliativEtiological/tree/main/HeteroSciGNN%20Model)
