@@ -2,13 +2,13 @@
 
 
 ## 📚 **Overview**
-This repository contains code and links to the datasets necessary to run the HeteroSciGNN Classifier model. This model predicts novel drug mechanisms as etiological or palliative using node embeddings in heterogeneous graph.
+This repository contains code and links to the datasets necessary to run the DrugMoA-BERT-GNN Classifier model. This model predicts novel drug mechanisms as etiological or palliative using node embeddings in heterogeneous graph.
 
 ### Motivation
 Understanding the relationships between drugs, genes, and diseases is crucial for effectively developing and selecting treatments. Our model aims to differentiate between two types of drug mechanisms: etiological (targeting disease causes or contributing factors) and palliative (alleviating symptoms). Despite its significance in drug design and repurposing, this distinction has not been extensively explored.
 
 ### Results
-We compiled a comprehensive dataset of 2,018 FDA-approved drugs, including their target genes, protein interactions, and disease associations, sourced from three biomedical databases. This dataset was enriched with manually annotated mechanisms of action (MOA). Utilizing this data, we created a heterogeneous network linking drugs, genes, and diseases, revealing notable patterns such as the prevalence of follow-on drugs (targeting the same genes). We evaluated three Machine Learning models - a fine-tuned SciBERT language model, a basic Graph Neural Network (GNN), and a HeteroSciGNN (hybrid GNN-SciBERT model)- for classifying drug MOAs. The hybrid model demonstrated superior performance, achieving an F1-score of 0.934 in identifying drug MOAs.
+We compiled a comprehensive dataset of 2,018 FDA-approved drugs, including their target genes, protein interactions, and disease associations, sourced from three biomedical databases. This dataset was enriched with manually annotated mechanisms of action (MOA). Utilizing this data, we created a heterogeneous network linking drugs, genes, and diseases, revealing notable patterns such as the prevalence of follow-on drugs (targeting the same genes). We evaluated three Machine Learning models - a fine-tuned SciBERT language model, a basic Graph Neural Network (GNN), and a DrugMoA-BERT-GNN (hybrid GNN-SciBERT model)- for classifying drug MOAs. The hybrid model demonstrated superior performance, achieving an F1-score of 0.934 in identifying drug MOAs.
 
 
 ## 🔗 **Resources**
@@ -20,7 +20,7 @@ Access the necessary resources for this project:
 
 - **Pre-generated Embeddings**: [Download Embeddings](https://github.com/bartala/PalliativEtiological/tree/main/Embeddings)
 - **Finetuned SciBERT Model**: [Download SciBERT Model](https://drive.google.com/drive/folders/1FW1carmxH62eD_rFqRWs5NDYG_logcTC?usp=sharing)
-- **HeteroSciGNN Classifier Model**: [Download HeteroSciGNN Model](https://github.com/bartala/PalliativEtiological/tree/main/HeteroSciGNN%20Model)
+- **DrugMoA-BERT-GNN Classifier Model**: [Download DrugMoA-BERT-GNN Model](https://github.com/bartala/PalliativEtiological/tree/main/%20Model)
 
 ## 🚀 **Quick Start**
   Before executing the colab nodebook, follow these steps for a smooth experience:
@@ -76,16 +76,16 @@ Access the necessary resources for this project:
     While an access token can be used (obtainable from your Hugging Face account), it's not mandatory for accessing public models like SciBERT.
     If you have an access token, assign it to the variable `access_token`. Otherwise, set the variable to `None`.
 
-### **IV. Comparing HeteroSciGNN Model and SciBERT**
+### **IV. Comparing  Model and SciBERT**
 - #### Fine-Tuning for Comparison
-  - To effectively compare the performance between the HeteroSciGNN model and SciBERT, it's essential to fine-tune both using the same 10-fold cross-validation process.
+  - To effectively compare the performance between the DrugMoA-BERT-GNN model and SciBERT, it's essential to fine-tune both using the same 10-fold cross-validation process.
   - Detailed instructions for fine-tuning SciBERT using 10-fold cross-validation are provided in the respective sections of 'PalliativeEtiolgical.pynb' notebook.
 
 ## 📌 **Miscellaneous**
 For any inquiries about the code or the algorithm, please contact alon.bartal@biu.ac.il.
 
 ## 📖 **Citing**
-If you find HeteroSciGNN useful in your research, please consider citing our work:
+If you find DrugMoA-BERT-GNN useful in your research, please consider citing our work:
 
 @article{??????
 }
