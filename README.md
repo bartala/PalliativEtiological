@@ -49,7 +49,7 @@ Access the necessary resources for this project:
     - Begin with the setup instructions to establish the necessary environment. 
     - Make sure the paths for all required files are correctly set.
 
-  - **Running Specific Sections (Sections 2-9):**
+  - **Running Specific Sections (Sections 2-9 from Palliativ_Etiological_Source_Code.ipynb notebook):**
     - **File Dependencies:** 
       - Check each section's instructions for its file requirements.
       - Ensure these files are loaded and their paths are correctly set.
