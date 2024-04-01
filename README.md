@@ -20,7 +20,7 @@ Access the necessary resources for this project:
 
 - **Pre-generated Embeddings**: [Download Embeddings](https://drive.google.com/drive/u/1/folders/1xiuGoolLOiiqkSeox0x7MtHe8-2rWHmp)
 - **Finetuned SciBERT Model**: [Download SciBERT Model](https://drive.google.com/drive/u/1/folders/1Uk5qwYCV5SSsVJ5-iGIWo10nkdN8Atto)
-- **DruGNNosis-MoA Classifier Model**: [Download DruGNNosis-MoA Model](https://github.com/bartala/PalliativEtiological/tree/main/%20Model)
+- **DruGNNosis-MoA Classifier Model**: [Download DruGNNosis-MoA Model](https://github.com/bartala/PalliativEtiological/tree/main/DruGNNosis-MoA%20Model)
 
 ## 🚀 **Quick Start**
   Before executing the colab nodebook, follow these steps for a smooth experience:
