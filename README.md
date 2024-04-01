@@ -18,8 +18,8 @@ Access the necessary resources for this project:
 - **OMIM DataSet** (In the project we used morbidmap.txt downloaded May 1, 2023): [Download OMIM Dataset](https://www.omim.org/downloads)
 - **BioGrid DataSet** (In the project we used BIOGRID-ORGANISM-Homo_sapiens-4.4.217.tab3.txt): [Download BioGrid Dataset](https://downloads.thebiogrid.org/File/BioGRID/Release-Archive/BIOGRID-4.4.217/BIOGRID-ORGANISM-4.4.217.tab3.zip)
 
-- **Pre-generated Embeddings**: [Download Embeddings](https://github.com/bartala/PalliativEtiological/tree/main/Embeddings)
-- **Finetuned SciBERT Model**: [Download SciBERT Model](https://drive.google.com/drive/folders/1FW1carmxH62eD_rFqRWs5NDYG_logcTC?usp=sharing)
+- **Pre-generated Embeddings**: [Download Embeddings](https://drive.google.com/drive/u/1/folders/1xiuGoolLOiiqkSeox0x7MtHe8-2rWHmp)
+- **Finetuned SciBERT Model**: [Download SciBERT Model](https://drive.google.com/drive/u/1/folders/1Uk5qwYCV5SSsVJ5-iGIWo10nkdN8Atto)
 - **DruGNNosis-MoA Classifier Model**: [Download DruGNNosis-MoA Model](https://github.com/bartala/PalliativEtiological/tree/main/%20Model)
 
 ## 🚀 **Quick Start**
