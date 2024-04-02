@@ -22,7 +22,7 @@ Access the necessary resources for this project:
 - **Finetuned SciBERT Model**: [Download SciBERT Model](https://drive.google.com/drive/folders/1SLSa9SQPfGodob5sCAJV33CnNheRq0qv?usp=sharing)
 - **DruGNNosis-MoA Classifier Model**: [Download DruGNNosis-MoA Model](https://github.com/bartala/PalliativEtiological/tree/main/DruGNNosis-MoA%20Model)
 
-- **Rest of Resources are Available**: [Link](https://drive.google.com/drive/folders/1Uk5qwYCV5SSsVJ5-iGIWo10nkdN8Atto?usp=sharing)
+- **Rest of Resources are Available**: [Google Cloud Link](https://drive.google.com/drive/folders/1Uk5qwYCV5SSsVJ5-iGIWo10nkdN8Atto?usp=sharing)
 
 ## 🚀 **Quick Start**
   Before executing the colab nodebook, follow these steps for a smooth experience:
