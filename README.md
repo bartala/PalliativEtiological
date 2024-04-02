@@ -57,7 +57,8 @@ Access the necessary resources for this project:
       - Ensure these files are loaded and their paths are correctly set.
     - **Independence of Sections:** 
       - Sections can run independently, **except for section 7**, which needs the 10-fold CV SciBert. Confirm that all necessary files for each section are available.
-
+    - **Note:**
+      - Before running a specific section, it is essential to verify that all classes, methods, and files required by that section are correctly loaded and executed.
 
   - **Running the Entire Notebook:**
     - Go to "Runtime" in the Colab menu and select "Run all".
