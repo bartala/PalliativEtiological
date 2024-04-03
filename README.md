@@ -13,6 +13,7 @@ We compiled a comprehensive dataset of 2,018 FDA-approved drugs, including their
 
 ## 🔗 **Resources**
 Access the necessary resources for this project:
+- **Supplementary**: [Download Drug Annotations](https://github.com/bartala/PalliativEtiological/tree/main/Supplementary)
 
 - **DrugBank DataSet** (In the project we used Approved Drugs Version 5.1.10): [Download DrugBank Dataset](https://go.drugbank.com/releases/latest#protein-identifiers)
 - **OMIM DataSet** (In the project we used morbidmap.txt downloaded May 1, 2023): [Download OMIM Dataset](https://www.omim.org/downloads)
