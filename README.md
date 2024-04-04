@@ -91,5 +91,5 @@ For any inquiries about the code or the algorithm, please contact alon.bartal@bi
 ## 📖 **Citing**
 If you find DruGNNosis-MoA useful in your research, please consider citing our work:
 
-@article{??????
+@article{will be completed upon publication
 }
