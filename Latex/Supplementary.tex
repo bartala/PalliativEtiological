@@ -9,11 +9,14 @@
 \hypersetup{hidelinks=true}
 \usepackage{textcomp}
 % added packages
+\usepackage{verbatim}
 \usepackage{subcaption}
 \graphicspath{{Fig/}}
 \usepackage{booktabs}
 \usepackage[flushleft]{threeparttable}
 \usepackage{placeins}
+\usepackage{graphicx} % For resizing tables
+
 %\usepackage{natbib}
 \usepackage[flushleft]{threeparttable}
 \usepackage{placeins}
@@ -23,7 +26,7 @@
 \markboth{\hskip25pc IEEE TRANSACTIONS AND JOURNALS TEMPLATE}
 {Author \MakeLowercase{\textit{et al.}}: Title}
 \begin{document}
-\title{Supplementary material for\\ DruGNNosis-MoA: Elucidating Drug Mechanisms as Etiological or Palliative With Graph Neural Networks Employing a Large Language Model}
+\title{Supplementary material for\\ DruGNNosis-MoA: Elucidating Drug Mechanisms as Etiological or Palliative with Graph Neural Networks Employing a Large Language Model}
 \author{
 %Brettler Liad, 
 %Berman Eden,
@@ -104,9 +107,8 @@
 \begin{subfigure}{\linewidth}
    \includegraphics[width=\linewidth]{Figures/Yildrim_all_shortest_distance.pdf}
    \caption{\textbf{All vs. All (Comprehensive) Method:} Calculates and counts the shortest distance between each drug and disease pair, considering each occurrence of the drug in multiple paths.
-   According to the technique of [5], 
-   %\cite{yildirim2007drug}
-   distances 0 and 1 hold statistical significance and are considered to indicate etiological drug mechanisms.}
+   A drug–disease distance of 0 indicates that the drug and the disease nodes are directly connected.
+   According to the technique proposed in [5], distances of 0 and 1 hold statistical significance and are indicative of etiological drug mechanisms; however, our results do not support this finding.}
    \label{fig:yildirim1}
 \end{subfigure}
 \begin{subfigure}{\linewidth}
@@ -118,8 +120,8 @@
 \begin{subfigure}{\linewidth}
    \includegraphics[width=\linewidth]{Figures/Yildrim_unique_minimum_shortest_distance.pdf}
    \caption{\textbf{Unique Minimum Shortest Distance Method:} 
-   For each drug, we identified its shortest distance to a disease. 
-   If a drug had the same shortest distance to multiple diseases, we retained only one unique distance per drug, removing duplicates.
+    For each drug, we identified its distance to a disease (presenting distances $\leq 2$). 
+    We retained only one unique distance per drug.
    }
    \label{fig:yildirim3}
 \end{subfigure}
@@ -143,9 +145,24 @@ This measures how common each distance is, relative to all possible paths.}
 \label{fig:fscore1}
 \end{figure}
 
+%-------------------
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{Figures/LDA.png}
+    \caption{LDA topic modeling results.
+    The left panel shows the Intertopic Distance Map, where each bubble represents a topic identified by the LDA model. 
+    The size of the bubble indicates the proportion of tokens attributed to the topic. 
+    The spatial separation of Topic 2 from other topics suggests its distinctiveness in terms of term usage. 
+    The right panel displays the Top-30 Most Relevant Terms for Topic 2, ranked by a relevance metric ($\lambda = 0.28$) that balances term specificity and frequency. Prominent terms for Topic 2 include `histamine,' `norepinephrine,' and `allergic,' indicating a focus on treatments related (palliative) to allergic responses and histamine pathways, such as antihistamines and adrenergic drugs. 
+    The red bars represent the estimated frequency of terms within Topic 2, while the blue bars represent their overall frequency across all topics.}
+    \label{fig:LDA}
+\end{figure}
 
 
 \newpage
+
+\clearpage
+
 %-------------------
 \section{Supplementary Tables}
 \label{sec11}
@@ -165,8 +182,6 @@ Tab 2 contains example drug mechanism.
 %-------------------
 %{Supplementary Table S2}
 %-------------------
-\subsection{Supplementary Table S2}
-
 \begin{table}[h!]
 \centering
 \begin{threeparttable}
@@ -217,16 +232,68 @@ GraphConv &
 
 
 %-------------------
-%{Supplementary Table S3}
+\newpage
 %-------------------
-%\subsection{Supplementary File S1}
+\begin{figure*}[h!]
+    \centering
+    \caption*{
+    Table S3: Results of LDA topic modeling applied to drug descriptions, intersected with DruGNNosis-MoA predictions. 
+    The column headings represent mechanisms of action (MoA), categorized as either palliative or etiological based on the dominant keywords within each topic. 
+    Within each topic, keywords are ranked from top to bottom according to their importance in defining that topic.
+    The bar charts below the table illustrate the proportion of etiological and palliative labels assigned to each topic by DruGNNosis-MoA. 
+    Notably, while each topic contains a mix of labels, the dominant classification generally aligns with the overall keyword categorization.
+    LDA identifies underlying topics based on word co-occurrence patterns but does not explicitly classify drugs as etiological or palliative. 
+    Instead, the topic compositions provide contextual insights into how drugs are described, which helps interpret DruGNNosis-MoA classifications. 
+    While some label overlap exists, the dominant label in each topic typically aligns with DruGNNosis-MoA predictions, suggesting that word usage patterns contribute to model decision-making.
+    By aligning DruGNNosis-MoA classifications with LDA topics, we gain insights into how word usage patterns correspond to MoA types, providing a complementary interpretability layer for understanding the model’s classification process. 
+    While LDA alone is not an effective classifier, its topic structures reinforce the textual patterns captured by DruGNNosis-MoA.
+    Finally, DruGNNosis-MoA was independently evaluated on an unseen test set with high accuracy, confirming that its classifications are robust beyond textual correlations identified by LDA.
+    }
+    \includegraphics[width=\linewidth]{Figures/table_LDA.pdf}
+    \label{fig:moa_distributions}
+\end{figure*}
 
-%A list of publications that support our strategy for classifying drugs as having etiological or palliative mechanisms is provided: 
-%\url{https://github.com/Anonymousv123/DruGNNosis-MoA/blob/main/Supplementary/List%20of%20Publications%20Supporting%20Etiological%20vs%20Palliative%20Drug%20Mechanisms_v1_11-24-2024%20(1).pdf}
-
-%\url{https://github.com/Anonymousv123/DruGNNosis-MoA/blob/main/Supplementary/drug_TestSet_predictions_value_genes_associated%20-%20drug_test_predictions_value_genes_associated.csv}
 
 
+\begin{table}[ht]
+\centering
+\caption*{Table S4: Performance evaluation for Network-based heuristic methods [5, 9] in accordance with Fig. S3c.}
+\label{tab:distance_distribution}
+\begin{tabular}{ccc}
+\toprule
+{Drug–Disease Distance} & {Etiological (e)} & {Palliative (p)} \\
+\midrule
+0 & 754 & 814 \\
+1 & 218 & 136 \\
+$\geq 2$ & 6   & 4   \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item 
+To compare the performance of DruGNNosis-MoA to the  network-based heuristic [5, 9], we evaluated the performance of the network-based heuristic [5, 9] based on Fig. S3c.
+We predict etiological (e) if drug distance to a disease is 0 or 1.
+We predict palliative (p) if drug distance to a disease is 2 or greater.
+Next, we define
+True Positives (TP): etiological drugs predicted as etiological;
+False Positives (FP): palliative drugs predicted as etiological;
+False Negatives (FN) etiological drugs predicted as palliative; and
+True Negatives (TN): palliative drugs predicted as palliative.
+Then, we computed the following measures:
+TP = 972,
+FP = 950,
+FN = 6,
+TN = 4,
+Precision = 0.506,
+Recall = 0.994, and
+F1-score = 0.670.
+
+In place of Guney et al.’s [9] proximity measure, which averages the shortest distances between drug targets and disease genes, we use each drug’s minimum drug–disease distance (Fig. S3c) as a proxy. 
+This is valid because our graph explicitly models drug–gene and gene–disease connections, so the shortest path from a drug to a disease captures the closest mechanistic link, aligning with the intent of the original proximity score while simplifying computation.
+\end{tablenotes}
+\end{table}
+
+
+\newpage
 
 
 %\end{appendices}
