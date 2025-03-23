@@ -25,7 +25,7 @@
 {Author \MakeLowercase{\textit{et al.}}: Title}
 
 \begin{document}
-\title{DruGNNosis-MoA: Elucidating Drug Mechanisms as Etiological or Palliative With Graph Neural Networks Employing a Large Language Model}
+\title{DruGNNosis-MoA: Elucidating Drug Mechanisms as Etiological or Palliative with Graph Neural Networks Employing a Large Language Model}
 \author{
 %Brettler Liad, 
 %Berman Eden,
@@ -95,7 +95,7 @@ Our research validates this prediction.
 More recently, \cite{guney2016network} analyzed large-scale datasets via network analysis to develop a drug-disease proximity measure to quantitatively assess the distances between drug targets and diseases, and categorize drugs as palliative or `effective' (comparable to our terminology of `etiological'). 
 They concluded that their metric provides an unbiased measure of the therapeutic effects of drugs that permits the differentiation of `causative' (`effective') treatments from palliative ones. 
 The authors reported that their network-based framework improves upon existing drug repurposing approaches, including similarity-based methods. 
-As in our work presented here, \cite{guney2016network} assessed the Anatomic Therapeutic Chemical (ATC) classifications of proximal and distant drug-disease pairs and presented trends identified in these analyses.
+As in our work presented here, \cite{guney2016network} assessed the Anatomic Therapeutic Chemical (ATC) classifications of proximal and distant drug-disease pairs and presented trends identified in these analyses. However, they analyzed only a subset of 238 of the 2,000+ FDA-approved drugs, so this work did not comprehensively assess all drugs. It also considered only 78 diseases.
 
 % The difficulty in classifying drugs as etiological and palliative.
 Distinguishing between etiological and palliative mechanisms of action (MoAs) involves challenges due to the complex nature of disease processes, potential overlap between targeting root causes and symptom relief, dual mechanisms exhibited by some drugs, limited treatment options for specific conditions, patient variability, the rarity of many diseases and conditions, and the interdisciplinary nature of healthcare \cite{yu2020exploring}.
@@ -182,7 +182,7 @@ In the case of conflicting labels, the discrepancy was discussed to achieve agre
 This manual evaluation yielded an annotated dataset that delineates the mechanism of each drug.
 For example, addressing vitamin deficiency, interventions such as replacement therapy or induced secretion of the deficient vitamin were classified as etiological, while drugs for alleviating the symptoms of the deficiency were labeled as palliative.
 Our labeling approach aligns with the ATC classification framework, which groups drugs based on their primary therapeutic purpose. For example, drugs categorized under anti-infectives for systemic use (e.g., antibiotics) are generally etiological, targeting the cause of infections by acting on bacteria or viruses. In contrast, drugs classified under nervous system therapies (e.g., analgesics and anxiolytics) are typically palliative, focusing on relieving symptoms such as pain or anxiety without addressing the underlying disease causes.
-We provide a list of publications that support our strategy for classifying drugs as having etiological or palliative mechanism (Supplementary Table S3) on the project’s GitHub repository.
+We provide a list of publications that support our strategy for classifying drugs as having etiological or palliative mechanism (Supplementary File S1) on the project’s GitHub repository.
 
 \subsection{Fine-tuning SciBERT}
 \label{sec:SciBERT}
@@ -342,19 +342,38 @@ This challenges the notion that distances greater than $1$ predominantly represe
 %-----------------------------------------------------------
 \subsection{Fine-tuning SciBERT}
 %-----------------------------------------------------------
-Using drug labeling in the previous section, we fine-tuned the SciBERT model to predict drug labels.
-For text inputs into SciBERT, we sourced drug descriptions from DrugBank; gene symbols from BioGRID; and disease names from OMIM.
-Following the guidelines of \cite{devlin-etal-2019-bert}, we utilized the Trainer class from Hugging Face \cite{wolf2019huggingface}, with the following parameters:
-AdamW optimizer with a weight decay of  $2e^{-3}$.
-AdamW differs from standard Adam by its unique approach to weight decay regularization; a learning rate of $2e^{-5}$; a batch size of 16; and a total of 3 training cycles.
+Using the drug labels described in the previous section, we fine-tuned the SciBERT model to predict drug labels.
+For text inputs into SciBERT, we sourced drug descriptions from DrugBank, gene symbols from BioGRID, and disease names from OMIM. To evaluate the model’s generalizability, the dataset was first partitioned into two subsets:
+90\% train set and 10\% independent test set.
+This independent test set was created at the start of the study and remained unseen throughout the training and validation phases. 
+The train data were used for 10-fold cross-validation (CV), where each fold involved splitting the train data into 90\% training and 10\% validation subsets. 
+This stratified approach ensured a balanced representation of etiological and palliative labels in each subset.
 
+\textbf{Fine-tuning process details:}
+The SciBERT model was fine-tuned using an NVIDIA Tesla T4 GPU with 16 GB GDDR6 memory and a bandwidth of 300 GB/s. 
+GPU acceleration via PyTorch ensured fast and energy-efficient computations during training and evaluation, optimizing the fine-tuning process for our dataset.
+Following the guidelines of \cite{devlin-etal-2019-bert}, we utilized the Trainer class from Hugging Face \cite{wolf2019huggingface} for fine-tuning the SciBERT model (\texttt{allenai/scibert\_scivocab\_uncased}).
+The model was configured for sequence classification with two output labels (etiological and palliative mechanisms).
+The fine-tuning process involved:
+AdamW optimizer with a weight decay parameter of $2 \times 10^{-3}$, a learning rate of $2 \times 10^{-5}$, and a batch size of 16, with three epochs.
+During training, the model checkpoints and outputs were saved for each fold in designated directories, which were compressed for efficient storage and reproducibility.
 
-SciBERT represented each text as a numeric vector (embeddings vector) of size 768.
-Consequently, we obtained three unique matrices of $Entity \times 768$ dimensionality, where Entity (rows) indicate either drugs, genes or diseases; and columns indicate values of the embeddings vectors.
-Then, we performed Principal Component Analysis (PCA) to reduce the dimensionality of each matrix to $Entity \times 128$.
-The reduced embedding vector for each entity type was integrated into our heterogeneous network as a node (drug, gene, disease) feature.
-This integration enhanced the learning capabilities of the GNN in developing more robust and representative node features.
+\textbf{Evaluation metrics:}
+The F1-score, chosen for its ability to balance precision and recall in imbalanced datasets, was used as the primary evaluation metric to assess the performance of our fine-tuned model.
+In addition, we monitored accuracy and loss during training using the CrossEntropyLoss function, with default parameters of \texttt{weight=None, reduction=`mean'} and \texttt{label\_smoothing=0.0}.
+Predictions and logits from the validation dataset were processed using a softmax function to obtain class probabilities, which were used for ROC curve analysis.
 
+\textbf{Cross-validation:}
+To enhance the model's robustness and minimize overfitting, we implemented 10-fold cross-validation (CV). 
+Predefined fold indexes ensured consistent data splitting across folds, with 90\% of the train data used for training and 10\% of the train data used for validation in each fold.
+Within each fold, stratified sampling was used to maintain class balance between etiological and palliative labels. 
+Metrics for each fold were stored for later aggregation and comparison.
+
+\textbf{Textual embeddings:}
+SciBERT transformed each text input into numeric embeddings of size 768, representing drug descriptions, gene symbols, and disease names.
+For each entity type (drug, gene, disease), we created matrices of $Entity \times 768$ dimensionality, where rows correspond to entities and columns to embedding values. 
+To optimize computational efficiency and compatibility with the GNN, Principal Component Analysis (PCA) was applied to reduce the embedding dimensionality to 128. 
+These reduced embeddings were subsequently integrated into our heterogeneous network as features for nodes (drugs, genes, and diseases), enhancing the GNN’s ability to learn robust and representative features.
 
 %-----------------------------------------------------------
 \subsection{Network Construction}
@@ -366,7 +385,7 @@ An overview of the networks analyzed in this project is presented in Table \ref{
 \textbf{Drug-Target Network}
 comprises 2,018 drug nodes, 2,232 target-gene nodes, and 10,250 links (edges) connecting them.
 It forms 129 connected components, with 75 consisting of standalone drug-target pairs.
-We observe a small number of highly connected nodes (hubs) and numerous nodes with only a few connections \cite{barabasi2009scale}.
+observe a small number of highly connected nodes (hubs) and numerous nodes with only a few connections \cite{barabasi2009scale}.
 The Largest Connected Component (LCC) within the network includes 1,797 drug nodes, 2,027 target-gene nodes, and 9,916 links.
 Notably, the most frequent degree in the LCC is 1, suggesting a prevalence of nodes with a single connection.
 Higher degrees are less frequent, aligning with the hubs that determine the connectivity of the LCC.
@@ -461,7 +480,11 @@ Additionally, only node labels of the Train set were provided during training, e
 %-----------------------------------------------------------
 \subsection{Model Evaluation}
 %-----------------------------------------------------------
-For model comparison, we employed a 10-fold CV process on the Train set to tune hyperparameters and select the best-performing model. 
+\textbf{To evaluate network-based approaches} \cite{yildirim2007drug,guney2016network}, we applied their rule of classifying drugs as etiological if their minimum drug–disease distance is 0 or 1, and palliative otherwise, using the per-drug distance data shown in Fig. S3c.
+Based on this rule, we computed classification metrics using our manually labeled data. The rule achieved a precision of 0.506, recall of 0.994, and an F1-score of 0.67 (Table S4).
+While this approach successfully recovers most etiological drugs (high recall), it misclassifies a large number of palliative drugs as etiological (low precision), leading to a substantially lower F1-score than our DruGNNosis-MoA model (F1=0.94). This highlights the limitations of relying on network distance alone to distinguish drug mechanisms of action.
+
+\textbf{For GNN model comparison,} we employed a 10-fold CV process on the Train set to tune hyperparameters and select the best-performing model. 
 This process ensured that the model was trained and validated on multiple partitions, mitigating any overfitting to a particular subset. 
 Importantly, the Test set remained completely unseen to our model during the CV process and was only used for final model performance estimation. 
 For each fold, we computed the F1-scores and ROC-AUC score (Area Under the Curve). 
@@ -529,11 +552,11 @@ GraphConv & 0.711 \\
 
 DruGNNosis-MoA outperformed all other models.
 The non-fine-tuned SciBERT achieved an F1-score of 0.815, versus 0.906 for the fine-tuned model, showing the impact of domain-specific fine-tuning. 
-DruGNNosis-MoA further raised the F1-score to 0.935 (Table \ref{tbl:cv_scores}), highlighting the added value of graph-based learning for improved accuracy and generalizability.
+DruGNNosis-MoA raised the F1-score to 0.935 (Table \ref{tbl:cv_scores}), highlighting the added value of graph-based learning for improved accuracy and generalizability.
 
-We then closely examined the performance trends of the two top models, fine-tuned SciBERT and DruGNNosis-MoA (Fig. S4). % \ref{fig:fscore1b})
+We then closely examined the performance trends of the two top models, fine-tuned SciBERT and DruGNNosis-MoA (Supplementary Fig. S4). % \ref{fig:fscore1b})
 The DruGNNosis-MoA model shows higher F1-scores in every fold when compared with the fine-tuned SciBERT model.
-This pattern suggests a trend where DruGNNosis-MoA outperforms the fine-tuned SciBERT in the task of classifying drugs as having etiological or palliative mechanisms (Fig. S4). %\ref{fig:fscore1b}).
+This pattern suggests a trend where DruGNNosis-MoA outperforms the fine-tuned SciBERT in the task of classifying drugs as having etiological or palliative mechanisms (Supplementary Fig. S4). %\ref{fig:fscore1b}).
 
 After observing that the DruGNNosis-MoA model demonstrated superior performance for F1-score, we assessed its efficacy compared with other tested models via the ROC-AUC curve that presents an average AUC score (Fig. \ref{fig:roc_auc1}).
 
@@ -605,6 +628,32 @@ The results show that DruGNNosis-MoA effectively handles sparse data, demonstrat
 \end{figure}
 
 
+
+
+%-----------------------------------------------------------
+\subsubsection{Model Interpretability}
+\label{sec:sparse_data_evaluation}
+
+Understanding why our model classifies a drug as etiological or palliative is crucial for clinical and regulatory applications, but can be challenging. 
+To explain our model's results and provide a clear rationale for drug classifications, we linked DrugNosis-MoA predictions to Latent Dirichlet Allocation (LDA) topics derived from drug descriptions documented in DrugBank.
+This approach enables clinical and regulatory stakeholders to better understand the basis of the model’s predictions without needing to delve into the complexities of the integrated GNN and LLM architecture.
+
+The optimal number of topics (10) was determined using the `gensim' Python library, which iteratively evaluated LDA models with 2 to 11 topics and selected the best model based on coherence scores. 
+The best LDA model assigned each drug description to a single topic.
+As shown in Supplementary Fig. S5 (LDA Results), each topic is defined by a set of highly relevant top-keywords. 
+We analyzed the top 30 keywords in each topic to determine its type as palliative or etiological (Supplementary Table S3). For example, Topic 2 was classified as palliative since it includes top keywords such as`histamine' and `allergic', which are linked to drugs targeting allergic responses (e.g., antihistamines) and are typically classified as palliative.
+
+To independently analyze topic-label relationships, we examined DrugNosis-MoA drug labels within each topic (cluster) and determined the cluster type (palliative or etiological) based on the majority of labels in each cluster (Supplementary Table S3).
+Clusters 2, 4, 7, and 10 are primarily palliative, while clusters 1, 3, 5, 6, 8, and 9 are mostly etiological. 
+
+By linking the independent DrugNosis-MoA classifications to LDA topics, we provide a clear explanation for drug classifications. 
+For instance, as mentioned above, some drugs classified as palliative by DrugNosis-MoA align with topics dominated by palliative keywords such as histamine-related keywords in Topic 2. 
+While each LDA topic contains a mix of etiological and palliative labels, the dominant label in each topic aligns with the classification assigned by DruGNNosis-MoA. 
+This is expected, as LDA groups words based on statistical co-occurrence, leading to some overlap between labels, showing that LDA is not effective in classifying drugs as etiological or palliative. 
+Additionally, DrugNosis-MoA was evaluated on an independent test set, providing excellent results. Comparing these two classification methods (Supplementary Table S3) suggests that word usage patterns may explain the classification process of DrugNosis-MoA.
+
+
+
 %--------------------------------
 \section{Discussion and Conclusions}
 %--------------------------------
@@ -623,7 +672,7 @@ Our novel DruGNNosis-MoA model integrates diverse data, uncovering hidden relati
 This study is pioneering in using a language-network framework with machine learning to explore these mechanisms, offering insights beyond conventional distance-based methods.
 
 The work of Yildirim et al. \cite{yildirim2007drug} anticipated a growth in the development of drugs with etiological mechanisms, a hypothesis we explored in this paper.
-We found limitations in their approach \cite{yildirim2007drug} of relying solely on distances within the network for drug mechanism classification.
+We found limitations in their approach \cite{yildirim2007drug} of relying solely on distances within the network for drug mechanism classification, consistent with that team's subsequent similar finding that network distances cannot consistently predict drug mechanisms of action \cite{guney2016network}.
 Our replication of the analyses of \cite{yildirim2007drug} did not reveal a significant correlation between drug mechanisms and network distance, as both mechanism types appeared at short and long distances. 
 While short distances may sometimes reflect etiological mechanisms \cite{yildirim2007drug}, our findings show no consistent correlation between network distance and drug mechanisms, indicating that our DruGNNosis-MoA model is more reliable than network distance-based approaches for predicting drug MoAs.
 This difference in results from prior studies may be due to our advanced computational approach to identifying drug MoA.
