@@ -19,11 +19,6 @@ Access the necessary resources for this project:
 - **OMIM DataSet** (In the project we used morbidmap.txt downloaded May 1, 2023): [Download OMIM Dataset](https://www.omim.org/downloads)
 - **BioGrid DataSet** (In the project we used BIOGRID-ORGANISM-Homo_sapiens-4.4.217.tab3.txt): [Download BioGrid Dataset](https://downloads.thebiogrid.org/File/BioGRID/Release-Archive/BIOGRID-4.4.217/BIOGRID-ORGANISM-4.4.217.tab3.zip)
 
-- **Finetuned SciBERT Model**: [Download SciBERT Model](https://drive.google.com/drive/folders/1SLSa9SQPfGodob5sCAJV33CnNheRq0qv?usp=sharing)
-- **DruGNNosis-MoA Classifier Model**: [Download DruGNNosis-MoA Model](https://github.com/bartala/PalliativEtiological/tree/main/DruGNNosis-MoA%20Model)
-
-- **Rest of Resources are Available**: [Google Drive](https://drive.google.com/drive/folders/1Uk5qwYCV5SSsVJ5-iGIWo10nkdN8Atto?usp=sharing)
-
 ## 🚀 **Quick Start**
   Before executing the colab nodebook, follow these steps for a smooth experience:
 
