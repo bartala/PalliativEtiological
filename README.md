@@ -76,11 +76,11 @@ For any inquiries about the code or the algorithm, please contact alon.bartal@bi
 
 ## 📖 **Citing**
 If you find DruGNNosis-MoA useful in your research, please consider citing our work:
-
+```
 @article{brettler2024drugnosis,
   author    = {Brettler, L. and Berman, E. and Jagodnik, Kathleen M. and Bartal, A.},
-  title     = {{DruGNNosis-MoA}: Elucidating Drug Mechanisms as Etiological or Palliative With Graph Neural Networks Employing a Large Language Model},
+  title     = {DruGNNosis-MoA: Elucidating Drug Mechanisms as Etiological or Palliative With Graph Neural Networks Employing a Large Language Model},
   journal   = {IEEE Journal of Biomedical and Health Informatics},
-  year = {(2025)},
+  year = {2025},
   publisher={IEEE}
-}
+}```
