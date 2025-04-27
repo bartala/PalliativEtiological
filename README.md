@@ -53,17 +53,13 @@ Access the necessary resources for this project:
 
   - **Running the Entire Notebook:**
     - Go to "Runtime" in the Colab menu and select "Run all".
-    - **Key File Check:** Ensure `comprehensive_dataset.csv.gz` is available and loaded, as it's critical for the entire notebook.
 
   - **Source of Files:** 
-    - Download necessary files from our GitHub repository.
-    - Store them correctly in your Google Drive or Colab's local disk.
+    - Store necessary files in your Google Drive or Colab's local disk.
 
 ### **II. Using Pre-generated Resources**
 - #### Pre-generated Embeddings
   - Generating embeddings for the GNN model can be quite time-consuming.
-  - To expedite the process, you may choose to use pre-generated embeddings from our GitHub repository.
-  - Instructions for using these embeddings are provided in the relevant sections of this notebook.
 
 ### **III. Fine-Tuned SciBERT Model**
   - Please note: To initialize the tokenizer for the SciBERT model, the use of an access token is optional.
@@ -81,5 +77,10 @@ For any inquiries about the code or the algorithm, please contact alon.bartal@bi
 ## 📖 **Citing**
 If you find DruGNNosis-MoA useful in your research, please consider citing our work:
 
-@article{will be completed upon publication
+@article{brettler2024drugnosis,
+  author    = {Brettler, L. and Berman, E. and Jagodnik, Kathleen M. and Bartal, A.},
+  title     = {{DruGNNosis-MoA}: Elucidating Drug Mechanisms as Etiological or Palliative With Graph Neural Networks Employing a Large Language Model},
+  journal   = {IEEE Journal of Biomedical and Health Informatics},
+  year = {(2025)},
+  publisher={IEEE}
 }
