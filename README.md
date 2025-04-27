@@ -83,4 +83,5 @@ If you find DruGNNosis-MoA useful in your research, please consider citing our w
   journal   = {IEEE Journal of Biomedical and Health Informatics},
   year = {2025},
   publisher={IEEE}
-}```
+}
+```
