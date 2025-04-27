@@ -31,10 +31,6 @@ Access the necessary resources for this project:
   - Execute `!python --version` in a new cell to confirm your Python version.
   - This notebook is optimized for Python 3.10.
 
-- ### Accessing Necessary Files
-  - All required files, including datasets and embeddings, are in our GitHub repository.
-  - Download these files and upload them to your Google Drive in a structured directory, like "/content/drive/MyDrive/project/PalliativEtiological/".
-
 - ### Mounting Google Drive / Colab's local disk
   - Mount your Google Drive to access the files.
   - Alternatively, upload files to Colab's local disk.
